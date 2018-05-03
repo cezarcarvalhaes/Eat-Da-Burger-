@@ -10,11 +10,8 @@ var orm = {
             callback(result);
         });
     },
-    insertOne: function (table, column, value, callback) {
-        connection.query("INSERT INTO ?? SET ? ; ", [
-            table, {
-                column: value
-            }], 
+    insertOne: function (table, value, callback) {
+        connection.query("INSERT INTO ?? SET ? ; ", [table, value], 
             function (err, result) {
             if (err) {
                 throw err;

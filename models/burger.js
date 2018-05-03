@@ -8,13 +8,13 @@ var burger = {
     },
     // The variables cols and vals are arrays.
     create: function(value, callback) {
-      orm.insertOne("burgers", "burger_name", value, function(res) {
+      orm.insertOne("burgers", value, function(res) {
         callback(res);
       });
     },
-    update: function(value, key, cb) {
+    update: function(value, key, callback) {
       orm.updateOne("burgers", "burger_name", value, key, function(res) {
-        cb(res);
+        callback(res);
       });
     },
   };
