@@ -1,25 +1,38 @@
-<header><h1>EAT DA BURGER</h1></header>
-<div id = "feature">
-    <img class = "foo" alt = "burger-lady" src = "/assets/img/foo-fighters.gif"/>
+<header>
+    <h1>EAT DA BURGER</h1>
+</header>
+<div id="feature">
+    <img class="foo" alt="burger-lady" src="/assets/img/foo-fighters.gif" />
     <h2>mmmmm...burgers!</h2>
 </div>
 
-<div id = "burgers">
+<div id="burgers">
     <ul>
-    {{#each burgers}}
+        {{#each burgers}}
+            {{#unless devoured}}
+        <li>{{burger_name}}<button class="devour-btn" data-id="{{id}}" data-devoured="{{devoured}}">Devour it!</button></li>
+            {{/unless}}
+        {{/each}}
+    </ul>
+</div>
+<div id="devoured">
+    <ul>
+        {{#each burgers}}
+            {{#if devoured}}
         <li>{{burger_name}}</li>
-    {{/each}}
+            {{/if}}
+        {{/each}}
     </ul>
 </div>
 
 <h2>Create a burger!</h2>
 <form class="create-form">
 
-  <div class="form-group">
-    <label for="new-burger"> Burger:</label>
-    <input type="text" id="new-burger">
-  </div>
+    <div class="form-group">
+        <label for="new-burger"> Burger:</label>
+        <input type="text" id="new-burger">
+    </div>
 
 
-  <button type="submit" id="add-burger">Add burger!</button>
+    <button type="submit" id="add-burger">Add burger!</button>
 </form>
