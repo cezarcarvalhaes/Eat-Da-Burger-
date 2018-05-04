@@ -20,7 +20,6 @@ var orm = {
         });
     },
     updateOne: function (table, value, key, callback) {
-        console.log(`table: ${table}, value: ${value}, key: ${key}`)
         connection.query("UPDATE ?? SET ? WHERE ?; ", [table, value, key], 
             function (err, result) {
             if (err) {
